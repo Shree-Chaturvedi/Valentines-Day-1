@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Love</title>
+
+<style>
+/* Heart cursor */
+body, * {
+    cursor: url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'>\
+    <text y='24' font-size='24'>❤️</text></svg>") 16 16, auto;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #0b3c5d, #1e6091, #5fa8d3);
+    color: #ffe3f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Rose petals */
+.petals {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.petal {
+    position: absolute;
+    top: -40px;
+    font-size: 26px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Content */
+.container {
+    position: relative;
+    z-index: 5;
+    width: 90%;
+    text-align: center;
+}
+
+/* Main message */
+.main-message {
+    font-size: 1.5em;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    animation: heartbeat 3s infinite;
+}
+
+/* Love line */
+.love-message {
+    font-size: 2.2em;
+    font-weight: bold;
+    animation: glow 2s infinite;
+}
+
+/* Animations */
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 15px #ff69b4;
+    }
+    50% {
+        text-shadow: 0 0 30px #ff69b4;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="petals" id="petals"></div>
+
+<div class="container">
+    <div class="main-message">
+        My dearest ShreeSakhi,<br><br>
+        Every heartbeat of mine whispers your name.
+        You are my peace, my happiness, my forever.
+        No matter where life takes us, my heart will
+        always choose you — today, tomorrow, always.
+    </div>
+
+    <div class="love-message">
+        I love you ❤️
+    </div>
+</div>
+
+<script>
+/* Rose petals */
+const petals = document.getElementById('petals');
+
+setInterval(() => {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.innerHTML = '🌹';
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = (8 + Math.random() * 6) + 's';
+    petals.appendChild(p);
+    setTimeout(() => p.remove(), 15000);
+}, 500);
+</script>
+
+</body>
+</html>
